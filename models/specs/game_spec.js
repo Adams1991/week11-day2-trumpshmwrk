@@ -53,6 +53,17 @@ describe("Game", function() {
     assert.deepStrictEqual(result3, 1)
   });
 
+  it("should be able to win hand", function(){
+    game.addCard(card1);
+    game.addCard(card2);
+    game.deal();
+    game.play("agility");
+    const result1 = game.player_1.hand.length;
+    assert.deepStrictEqual(result1, 2)
+    const result2 = game.player_2.hand.length;
+    assert.deepStrictEqual(result2, 0)
+  })
+
 
 
 
