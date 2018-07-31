@@ -13,9 +13,11 @@ Game.prototype.deal = function () {
   this.player_2.hand.push(this.deck.pop());
 };
 
-Game.prototype.play = function (category) {
+Game.prototype.play = function (category, playerChoosing) {
 let player1FirstCard = this.player_1.hand[0];
 let player2FirstCard = this.player_2.hand[0];
+
+
 
 if (player1FirstCard[category] >= player2FirstCard[category]){
   this.player_1.hand.push(player2FirstCard);
