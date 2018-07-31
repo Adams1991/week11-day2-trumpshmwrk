@@ -31,6 +31,18 @@ describe("Game", function() {
     assert.deepStrictEqual(result, [])
   });
 
+  it("should be able to add cards to deck", function(){
+    game.addCard(card1)
+    const result = game.deck.length;
+    assert.deepStrictEqual(result, 1)
+  });
+
+  it("should be able to add players", function(){
+    game.addPlayer(player_1)
+    const result = game.players.length;
+    assert.deepStrictEqual(result, 1)
+  });
+
 
 
 

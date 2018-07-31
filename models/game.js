@@ -24,7 +24,7 @@ Game.prototype.play = function (category) {
 
 
 
-};
+
 
 
 module.exports = Game;
