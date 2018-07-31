@@ -3,7 +3,7 @@ const Card = require('../card.js');
 const Player = require('../player.js');
 const Game = require('../game.js');
 
-describe("Card", function() {
+describe("Game", function() {
 
   let card1;
   let card2;
@@ -33,8 +33,27 @@ describe("Card", function() {
   it("should have an empty deck", function(){
     const result = game.deck;
     assert.deepStrictEqual(result, [])
-
   });
+
+  it("should be able to add card to deck", function(){
+    game.addCard(card1);
+    const result = game.deck.length;
+    assert.deepStrictEqual(result, 1)
+  });
+
+  it("should be able to deal two cards to players", function(){
+    game.addCard(card1);
+    game.addCard(card2);
+    game.deal();
+    const result1 = game.deck.length;
+    assert.deepStrictEqual(result1, 0)
+    const result2 = game.player_1.hand.length;
+    assert.deepStrictEqual(result2, 1)
+    const result3 = game.player_2.hand.length;
+    assert.deepStrictEqual(result3, 1)
+  });
+
+
 
 
 });
