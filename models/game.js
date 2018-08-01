@@ -9,8 +9,10 @@ Game.prototype.addCard = function (card) {
 };
 
 Game.prototype.deal = function () {
-  this.player_1.hand.push(this.deck.pop());
-  this.player_2.hand.push(this.deck.pop());
+  for (var i = 0; i < this.deck.length; i++) {
+    this.player_1.hand.push(this.deck.pop());
+    this.player_2.hand.push(this.deck.pop());
+  }
 };
 
 Game.prototype.playerOneChoosesCategory = function (category) {
@@ -21,7 +23,7 @@ if (player1FirstCard[category] >= player2FirstCard[category]){
   this.player_1.hand.push(player2FirstCard);
   this.player_2.hand.shift();
 }else{
-  this.player_2.hand.push(player2FirstCard);
+  this.player_2.hand.push(player1FirstCard);
   this.player_1.hand.shift();
 }
 
@@ -35,7 +37,7 @@ if (player2FirstCard[category] >= player1FirstCard[category]){
   this.player_2.hand.push(player1FirstCard);
   this.player_1.hand.shift();
 }else{
-  this.player_1.hand.push(player1FirstCard);
+  this.player_1.hand.push(player2FirstCard);
   this.player_2.hand.shift();
 }
 
@@ -43,13 +45,16 @@ if (player2FirstCard[category] >= player1FirstCard[category]){
 
 Game.prototype.checkWinner = function () {
   if (this.player_1.handCount() === 0){
-    return `${this.player_1.name} wins`
+    return `${this.player_2.name} wins`
   } else if (this.player_2.handCount() === 0) {
     return `${this.player_1.name} wins`
   } else {
-    return "There's no winner at the moment"
+    return `There's no winner at the moment. Player one has ${this.player_1.handCount()}  left and
+    Player two ${this.player_2.handCount()} left.`
   }
 };
+
+
 
 
 module.exports = Game;
