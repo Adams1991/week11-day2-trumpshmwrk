@@ -57,12 +57,21 @@ describe("Game", function() {
     game.addCard(card1);
     game.addCard(card2);
     game.deal();
-    game.play("agility");
+    game.playerOneChoosesCategory("agility");
     const result1 = game.player_1.hand.length;
     assert.deepStrictEqual(result1, 2)
     const result2 = game.player_2.hand.length;
     assert.deepStrictEqual(result2, 0)
-  })
+  });
+
+  it("should be able to check winner", function(){
+    game.addCard(card1);
+    game.addCard(card2);
+    game.deal();
+    game.playerOneChoosesCategory("agility");
+    const result = game.checkWinner();
+    assert.deepStrictEqual(result, "Chris wins")
+  });
 
 
 
