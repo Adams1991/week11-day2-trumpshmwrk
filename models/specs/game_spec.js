@@ -43,10 +43,13 @@ describe("Game", function() {
     assert.deepStrictEqual(result, 1)
   });
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> parent of 6beeec7... mvp done
 
 
 

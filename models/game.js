@@ -18,10 +18,13 @@ Game.prototype.deal = function () {
 
 };
 
+<<<<<<< HEAD
 Game.prototype.play = function (category) {
 
 };
 
+=======
+>>>>>>> parent of 6beeec7... mvp done
 
 
 
