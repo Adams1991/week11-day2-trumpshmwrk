@@ -16,40 +16,54 @@ describe("Game", function() {
     card2 = new Card("The Flash", 7, 4, 10);
     player_1 = new Player("Chris");
     player_2 = new Player("Shaun");
-    game = new Game()
+    game = new Game(player_1, player_2, [])
   });
 
+  it("should have a player_1", function(){
+    const result = game.player_1.name;
+    assert.deepStrictEqual(result, "Chris")
+  });
 
+  it("should have a player_2", function(){
+    const result = game.player_2.name;
+    assert.deepStrictEqual(result, "Shaun")
+
+  });
 
   it("should have an empty deck", function(){
     const result = game.deck;
     assert.deepStrictEqual(result, [])
   });
 
-  it("should have an no players", function(){
-    const result = game.players;
-    assert.deepStrictEqual(result, [])
-  });
-
-  it("should be able to add cards to deck", function(){
-    game.addCard(card1)
+  it("should be able to add card to deck", function(){
+    game.addCard(card1);
     const result = game.deck.length;
     assert.deepStrictEqual(result, 1)
   });
 
-  it("should be able to add players", function(){
-    game.addPlayer(player_1)
-    const result = game.players.length;
-    assert.deepStrictEqual(result, 1)
+  it("should be able to deal two cards to players", function(){
+    game.addCard(card1);
+    game.addCard(card2);
+    game.deal();
+    const result1 = game.deck.length;
+    assert.deepStrictEqual(result1, 0)
+    const result2 = game.player_1.hand.length;
+    assert.deepStrictEqual(result2, 1)
+    const result3 = game.player_2.hand.length;
+    assert.deepStrictEqual(result3, 1)
   });
 
-<<<<<<< HEAD
+  it("should be able to win hand", function(){
+    game.addCard(card1);
+    game.addCard(card2);
+    game.deal();
+    game.play("agility");
+    const result1 = game.player_1.hand.length;
+    assert.deepStrictEqual(result1, 2)
+    const result2 = game.player_2.hand.length;
+    assert.deepStrictEqual(result2, 0)
+  })
 
-
-
-
-=======
->>>>>>> parent of 6beeec7... mvp done
 
 
 
